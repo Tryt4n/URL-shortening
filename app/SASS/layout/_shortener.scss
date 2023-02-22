@@ -21,6 +21,75 @@
   }
 }
 
+.shortened-links-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #999 transparent;
+  z-index: 100;
+}
+.shortened-links-wrapper::-webkit-scrollbar {
+  width: 0.5vw;
+}
+.shortened-links-wrapper::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 9999px;
+}
+.shortened-links-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.shortened-links-wrapper {
+  margin-top: -3rem;
+  @include flex(column);
+  gap: 1rem;
+  max-height: 50vh;
+  overflow-y: scroll;
+
+  &__item {
+    background: white;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    gap: 1rem;
+    & .url-wrap {
+      flex-grow: 1;
+    }
+
+    @media (width >= func.rem(1024)) {
+      @include flex(row, space-between, center);
+
+      & .url-wrap {
+        @include flex(row, space-between, center);
+      }
+    }
+    @media (width < func.rem(1024)) {
+      @include flex(column, flex-start);
+
+      & .url-wrap {
+        @include flex(column, flex-start, flex-start);
+      }
+    }
+  }
+
+  & .url {
+    font-weight: bold;
+    word-wrap: break-word;
+
+    &--before {
+      color: c.$very-dark-violet;
+    }
+    &--after {
+      color: c.$cyan;
+      text-align: end;
+    }
+  }
+  &:last-child {
+    margin-bottom: 7.5rem;
+  }
+
+  & button {
+    width: func.rem(110);
+  }
+}
+
 @media (width >= func.rem(768)) {
   .shortener {
     @include flex(row, space-between, center);

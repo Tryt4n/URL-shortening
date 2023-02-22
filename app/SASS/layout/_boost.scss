@@ -1,9 +1,11 @@
 @use "../base/functions" as func;
 @use "../abstracts/colors" as c;
+@use "../abstracts/mixins" as *;
 
 .boost {
   text-align: center;
   padding-block: 5rem;
+  @include flex(column, center, center);
 
   & h2 {
     font-size: 2.5rem;

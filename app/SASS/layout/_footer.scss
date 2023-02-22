@@ -8,12 +8,11 @@ footer {
 }
 
 .footer-wrapper {
-  padding-block: 3rem;
+  padding-block: 3rem 7.5rem;
   @include flex(row, space-between, flex-start);
   @media (width < func.rem(1200)) {
     @include flex(column, center, center);
     gap: 5rem;
-    padding-bottom: 7.5rem;
   }
 
   & a {

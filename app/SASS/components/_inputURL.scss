@@ -5,9 +5,10 @@
 input[type="url"] {
   flex-grow: 1;
   padding: 1em;
+  outline: none;
   border: none;
   border-radius: 0.5em;
-  color: inherit;
+  color: c.$very-dark-violet;
   border: func.rem(3) solid transparent;
   transition: v.$main-transition;
   font-size: inherit;

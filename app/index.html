@@ -51,23 +51,83 @@
 
     <main>
       <div class="main-bg">
-        <form class="container shortener" aria-labelledby="url-shortener" data-aos="zoom-in">
+        <section class="shortener-section" aria-labelledby="url-shortener">
           <span id="url-shortener" class="visually-hidden">URL Shortener</span>
-          <label class="visually-hidden" for="url">Insert URL</label>
-          <input
-            class="shortener__input invalid"
-            type="url"
-            name="url"
-            id="url"
-            placeholder="Shorten a link here..."
-            pattern="https?://[^ ]+\.[a-zA-Z]+"
-            title="URL must be valid"
-            required
-            data-aos="zoom-in"
-          />
-          <p class="shortener__information">Please add a link</p>
-          <button class="btn btn--square" data-aos="zoom-in">Shorten It!</button>
-        </form>
+
+          <form class="container shortener" data-aos="zoom-in">
+            <label class="visually-hidden" for="url">Insert URL</label>
+            <input
+              class="shortener__input invalid"
+              type="url"
+              name="url"
+              id="url"
+              placeholder="Shorten a link here..."
+              pattern="https?://[^ ]+\.[a-zA-Z]+"
+              title="URL must be valid"
+              required
+              data-aos="zoom-in"
+            />
+            <p class="shortener__information">Please add a link</p>
+            <button class="btn btn--square" data-aos="zoom-in">Shorten It!</button>
+          </form>
+          <div class="container shortened-links-wrapper" data-aos="zoom-in">
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.comhttps://www.example.com</code>
+                <code class="url url--after">https://shortfafsafasf</code>
+              </div>
+              <button class="btn btn--square btn--small">Copy</button>
+            </div>
+
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.com</code>
+                <code class="url url--after">https://short</code>
+              </div>
+              <button class="btn btn--square btn--small btn--accent">Copied</button>
+            </div>
+
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.com</code>
+                <code class="url url--after">https://short</code>
+              </div>
+              <button class="btn btn--square btn--small">Copy</button>
+            </div>
+
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.com</code>
+                <code class="url url--after">https://short</code>
+              </div>
+              <button class="btn btn--square btn--small">Copy</button>
+            </div>
+
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.com</code>
+                <code class="url url--after">https://short</code>
+              </div>
+              <button class="btn btn--square btn--small">Copy</button>
+            </div>
+
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.com</code>
+                <code class="url url--after">https://short</code>
+              </div>
+              <button class="btn btn--square btn--small">Copy</button>
+            </div>
+
+            <div class="shortened-links-wrapper__item">
+              <div class="url-wrap">
+                <code class="url url--before">https://www.example.com</code>
+                <code class="url url--after">https://short</code>
+              </div>
+              <button class="btn btn--square btn--small">Copy</button>
+            </div>
+          </div>
+        </section>
 
         <section class="container statistics">
           <div data-aos="zoom-in">
@@ -78,7 +138,7 @@
             </p>
           </div>
 
-          <div class="statistics__articles-wrapper">
+          <div class="statistics__articles-wrapper" data-aos="zoom-in">
             <article class="card" data-aos="zoom-in-down">
               <div class="card__icon" data-aos="zoom-in-down">
                 <svg
@@ -162,7 +222,7 @@
 
     <footer>
       <div class="container footer-wrapper">
-        <img src="assets/images/logo-white.svg" alt="Shortly logo" />
+        <img src="assets/images/logo-white.svg" alt="Shortly logo" data-aos="zoom-in-down" />
 
         <nav class="footer-navigation" aria-label="footer navigation">
           <div class="footer-navigation__wrap">
@@ -251,5 +311,15 @@
         </nav>
       </div>
     </footer>
+
+    <template>
+      <div class="shortened-links-wrapper__item">
+        <div class="url-wrap">
+          <code class="url url--before"></code>
+          <code class="url url--after"></code>
+        </div>
+        <button class="btn btn--square btn--small">Copy</button>
+      </div>
+    </template>
   </body>
 </html>
