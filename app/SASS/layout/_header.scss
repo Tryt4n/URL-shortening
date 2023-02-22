@@ -1,0 +1,166 @@
+@use "../base/functions" as func;
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as *;
+
+.navbar {
+  @include flex(row, space-between, center);
+  gap: 3rem;
+  translate: 0 -100%;
+  animation: navbarSlideDown 1000ms ease-in forwards;
+}
+
+.container.header {
+  margin-right: 0;
+}
+
+.header {
+  overflow: hidden;
+  &__text {
+    & h1 {
+      font-size: 3em;
+    }
+    & p {
+      margin-block: 0.5rem 1.5rem;
+    }
+  }
+}
+
+@media (width >= func.rem(768)) {
+  .navbar {
+    & .navigation {
+      @include flex(row, space-between, center);
+      width: 100%;
+      font-weight: bold;
+      padding-block: 2rem;
+
+      &__block {
+        @include flex(row, center, center);
+        gap: 2rem;
+      }
+
+      & hr {
+        visibility: hidden;
+      }
+
+      & a {
+        transition: v.$main-transition;
+
+        &:where(:hover, :focus) {
+          color: c.$dark-violet;
+        }
+      }
+    }
+  }
+
+  .hamburger-btn {
+    display: none;
+  }
+
+  .container.header {
+    width: 90dvw;
+    margin-right: 0;
+  }
+
+  .header {
+    @include flex(row, flex-start, center);
+
+    &__text {
+      min-width: 50%;
+      margin-right: 2rem;
+
+      & h1 {
+        font-size: 3em;
+      }
+      & p {
+        margin-block: 0.5rem 1.5rem;
+      }
+    }
+  }
+}
+
+@media (width < func.rem(768)) {
+  .navbar {
+    padding-block: 3rem 2rem;
+    position: relative;
+    & .navigation {
+      position: absolute;
+      top: v.$navbar-height;
+      left: 0;
+      right: 0;
+      background: c.$dark-violet;
+      padding: 3rem 2rem;
+      border-radius: 0.75rem;
+      z-index: -10;
+      visibility: hidden;
+      transition: 1000ms ease-in-out;
+
+      &__block {
+        @include flex(column);
+        gap: 2rem;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        & a {
+          opacity: 0.75;
+          transition: v.$main-transition;
+
+          &:where(:hover, :focus) {
+            opacity: 1;
+          }
+        }
+      }
+
+      & hr {
+        margin-block: 2rem;
+        border-top: 0;
+        border-color: c.$gray;
+        opacity: 0.25;
+      }
+
+      &.visible {
+        visibility: visible;
+      }
+    }
+  }
+
+  .hamburger-btn {
+    color: inherit;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: v.$main-transition;
+
+    &:where(:hover, :focus-visible) {
+      color: c.$very-dark-blue;
+    }
+  }
+
+  .container.header {
+    margin-right: 0;
+  }
+
+  .header {
+    @include flex(column-reverse, flex-start, flex-start);
+    gap: 3rem;
+    text-align: center;
+    &__text {
+      margin-bottom: 3rem;
+      margin-left: -1rem;
+      & p {
+        width: 90dvw;
+        margin-inline: auto;
+      }
+    }
+  }
+}
+
+@keyframes navbarSlideDown {
+  from {
+    translate: 0 -100%;
+  }
+
+  to {
+    translate: 0;
+    z-index: 10;
+  }
+}

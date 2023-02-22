@@ -1,0 +1,7 @@
+@use "../base/functions" as func;
+
+$main-transition: 300ms ease-in-out;
+
+$navbar-height: func.rem(123);
+
+$information-invalid-font-size: 0.75rem;

@@ -1,0 +1,68 @@
+@use "../base/functions" as func;
+@use "../abstracts/colors" as c;
+
+main {
+  margin-top: 7.5rem;
+}
+
+.main-bg {
+  background: c.$main-background-color;
+  padding-bottom: 7.5rem;
+}
+
+.statistics {
+  line-height: 1.75em;
+  & > :first-child {
+    max-width: 500px;
+    margin-inline: auto;
+    margin-bottom: 5rem;
+    text-align: center;
+
+    & h2 {
+      font-size: 2em;
+      padding-bottom: 1em;
+    }
+  }
+
+  &__articles-wrapper {
+    display: grid;
+
+    @media (width >= func.rem(1200)) {
+      width: 100%;
+      position: relative;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      & > :first-child {
+        translate: 0 -15%;
+      }
+      & > :last-child {
+        translate: 0 15%;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        height: func.rem(10);
+        width: 100%;
+        top: 35%;
+        left: 0;
+        right: 0;
+        background: c.$cyan;
+      }
+    }
+    @media (width < func.rem(1200)) {
+      grid-template-rows: repeat(3, 1fr);
+      gap: 5rem;
+      justify-items: center;
+      & > :not(:first-of-type)::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 50%;
+        width: func.rem(10);
+        height: 5rem;
+        background: c.$cyan;
+        translate: 50% -100%;
+      }
+    }
+  }
+}

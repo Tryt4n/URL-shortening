@@ -1,0 +1,58 @@
+@use "../base/functions" as func;
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as *;
+
+footer {
+  background: c.$very-dark-blue;
+}
+
+.footer-wrapper {
+  padding-block: 3rem;
+  @include flex(row, space-between, flex-start);
+  @media (width < func.rem(1200)) {
+    @include flex(column, center, center);
+    gap: 5rem;
+    padding-bottom: 7.5rem;
+  }
+
+  & a {
+    color: c.$gray;
+    transition: v.$main-transition;
+
+    &:where(:first-child),
+    &:has(svg) {
+      color: white;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      &:where(:hover, :focus) {
+        color: c.$cyan;
+      }
+    }
+
+    &:where(:hover, :focus) {
+      color: c.$cyan;
+    }
+  }
+}
+
+.footer-navigation {
+  @include flex();
+  gap: 5rem;
+  @media (width < func.rem(768)) {
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  &__wrap {
+    @include flex(column);
+    gap: 1rem;
+  }
+
+  &__logos {
+    @include flex(row);
+    gap: 1.5rem;
+  }
+}

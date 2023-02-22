@@ -1,0 +1,32 @@
+@use "../base/functions" as func;
+@use "../abstracts/colors" as c;
+
+.boost {
+  text-align: center;
+  padding-block: 5rem;
+
+  & h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1em;
+    color: white;
+  }
+
+  @media (width >= func.rem(768)) {
+    background: url("/app/assets/images/bg-boost-desktop.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    background-color: c.$dark-violet;
+  }
+
+  @media (width < func.rem(768)) {
+    background: url("/app/assets/images/bg-boost-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: c.$dark-violet;
+
+    & h2 {
+      font-size: 1.75rem;
+    }
+  }
+}

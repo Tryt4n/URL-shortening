@@ -1,0 +1,34 @@
+@use "../base/functions" as func;
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as *;
+
+.card {
+  position: relative;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  z-index: 1;
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    width: fit-content;
+    height: fit-content;
+    @include flex(row, center, center);
+    background: c.$dark-violet;
+    padding: 1.25rem;
+    border-radius: 50%;
+    translate: 0 -50%;
+  }
+
+  & h3 {
+    margin-block: 3rem 1rem;
+    font-size: 1.5rem;
+  }
+
+  @media (width < func.rem(1200)) {
+    @include flex(column, center, center);
+    text-align: center;
+  }
+}

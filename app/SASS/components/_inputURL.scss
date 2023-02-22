@@ -1,0 +1,24 @@
+@use "../base/functions" as func;
+@use "../abstracts/colors" as c;
+@use "../abstracts/variables" as v;
+
+input[type="url"] {
+  flex-grow: 1;
+  padding: 1em;
+  border: none;
+  border-radius: 0.5em;
+  color: inherit;
+  border: func.rem(3) solid transparent;
+  transition: v.$main-transition;
+  font-size: inherit;
+  font-family: inherit;
+
+  &.invalid {
+    border-color: c.$red;
+
+    &::placeholder {
+      color: c.$red;
+      opacity: 0.5;
+    }
+  }
+}

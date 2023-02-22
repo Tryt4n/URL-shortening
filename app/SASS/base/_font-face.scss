@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Poppins";
+  font-weight: normal;
+  src: url("/app/assets/fonts/poppins-medium-webfont.woff2") format("woff2"),
+    url("/app/assets/fonts/poppins-medium-webfont.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-weight: bold;
+  src: url("/app/assets/fonts/poppins-bold-webfont.woff2") format("woff2"),
+    url("/app/assets/fonts/poppins-bold-webfont.woff") format("woff");
+}
