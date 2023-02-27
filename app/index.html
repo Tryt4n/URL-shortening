@@ -14,7 +14,7 @@
     <header>
       <div class="container navbar">
         <img src="assets/images/logo.svg" alt="Shortly logo" />
-        <nav id="main-navigation" class="navigation" aria-label="main navigation">
+        <nav id="main-navigation" class="navigation" aria-label="main navigation" data-navigation>
           <div class="navigation__block">
             <a href="#">Features</a>
             <a href="#">Pricing</a>
@@ -25,10 +25,12 @@
 
           <div class="navigation__block">
             <a href="#">Login</a>
-            <button class="btn">Sign Up</button>
+            <button class="btn btn--scalable">Sign Up</button>
           </div>
         </nav>
-        <button class="hamburger-btn" aria-controls="main-navigation">&#9776;</button>
+        <button class="hamburger-btn" aria-controls="main-navigation" data-hamburger-btn>
+          &#9776;
+        </button>
       </div>
 
       <div class="container header">
@@ -57,76 +59,33 @@
           <form class="container shortener" data-aos="zoom-in">
             <label class="visually-hidden" for="url">Insert URL</label>
             <input
-              class="shortener__input invalid"
+              class="shortener__input"
               type="url"
               name="url"
               id="url"
               placeholder="Shorten a link here..."
-              pattern="https?://[^ ]+\.[a-zA-Z]+"
+              pattern="(https?:\/\/\S+)"
               title="URL must be valid"
               required
+              aria-describedby="warning-info"
               data-aos="zoom-in"
+              data-link-input
             />
-            <p class="shortener__information">Please add a link</p>
-            <button class="btn btn--square" data-aos="zoom-in">Shorten It!</button>
+            <p
+              id="warning-info"
+              class="shortener__information"
+              role="alert"
+              aria-live="assertive"
+              aria-hidden="true"
+              data-warning-information
+            ></p>
+            <button class="btn btn--square" data-aos="zoom-in" data-shorten-btn>Shorten It!</button>
           </form>
-          <div class="container shortened-links-wrapper" data-aos="zoom-in">
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.comhttps://www.example.com</code>
-                <code class="url url--after">https://shortfafsafasf</code>
-              </div>
-              <button class="btn btn--square btn--small">Copy</button>
-            </div>
-
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.com</code>
-                <code class="url url--after">https://short</code>
-              </div>
-              <button class="btn btn--square btn--small btn--accent">Copied</button>
-            </div>
-
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.com</code>
-                <code class="url url--after">https://short</code>
-              </div>
-              <button class="btn btn--square btn--small">Copy</button>
-            </div>
-
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.com</code>
-                <code class="url url--after">https://short</code>
-              </div>
-              <button class="btn btn--square btn--small">Copy</button>
-            </div>
-
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.com</code>
-                <code class="url url--after">https://short</code>
-              </div>
-              <button class="btn btn--square btn--small">Copy</button>
-            </div>
-
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.com</code>
-                <code class="url url--after">https://short</code>
-              </div>
-              <button class="btn btn--square btn--small">Copy</button>
-            </div>
-
-            <div class="shortened-links-wrapper__item">
-              <div class="url-wrap">
-                <code class="url url--before">https://www.example.com</code>
-                <code class="url url--after">https://short</code>
-              </div>
-              <button class="btn btn--square btn--small">Copy</button>
-            </div>
-          </div>
+          <div
+            class="container shortened-links-wrapper"
+            data-shortened-links-wrapper
+            data-aos="zoom-in"
+          ></div>
         </section>
 
         <section class="container statistics">
@@ -312,13 +271,13 @@
       </div>
     </footer>
 
-    <template>
-      <div class="shortened-links-wrapper__item">
+    <template data-URL-template>
+      <div class="shortened-links-wrapper__item" data-shortened-link-item>
         <div class="url-wrap">
-          <code class="url url--before"></code>
-          <code class="url url--after"></code>
+          <code class="url url--before" data-URL-before></code>
+          <code class="ur data-shorten-code url--after" data-URL-after></code>
         </div>
-        <button class="btn btn--square btn--small">Copy</button>
+        <button class="btn btn--square btn--small" data-shorten-copy-btn>Copy</button>
       </div>
     </template>
   </body>

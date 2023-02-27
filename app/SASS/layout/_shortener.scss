@@ -51,13 +51,22 @@
     gap: 1rem;
     & .url-wrap {
       flex-grow: 1;
+      word-break: break-all;
     }
 
     @media (width >= func.rem(1024)) {
       @include flex(row, space-between, center);
+      & button {
+        width: func.rem(110);
+      }
 
       & .url-wrap {
         @include flex(row, space-between, center);
+        gap: 1rem;
+
+        & hr {
+          display: none;
+        }
       }
     }
     @media (width < func.rem(1024)) {
@@ -65,6 +74,11 @@
 
       & .url-wrap {
         @include flex(column, flex-start, flex-start);
+        & hr {
+          width: calc(100% + 2rem);
+          translate: -1rem;
+          border-top: 0;
+        }
       }
     }
   }
@@ -83,10 +97,6 @@
   }
   &:last-child {
     margin-bottom: 7.5rem;
-  }
-
-  & button {
-    width: func.rem(110);
   }
 }
 

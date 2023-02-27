@@ -1,3 +1,4 @@
+@use "../base/functions" as func;
 @use "../abstracts/colors" as c;
 @use "../abstracts/variables" as v;
 @use "../abstracts/mixins" as *;
@@ -27,5 +28,12 @@
 
   &:where(:hover, :focus-visible) {
     opacity: 0.5 !important;
+  }
+
+  &--scalable {
+    @media (width < func.rem(930)) and (width > func.rem(768)) {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+    }
   }
 }

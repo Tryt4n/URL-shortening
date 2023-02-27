@@ -60,13 +60,13 @@ img {
 }
 
 body {
-  color: hsl(257deg, 7%, 63%);
+  color: hsl(257, 7%, 63%);
 }
 
 h1,
 h2,
 h3 {
-  color: hsl(257deg, 27%, 26%);
+  color: hsl(257, 27%, 26%);
 }
 
 button {
@@ -134,6 +134,7 @@ button {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     width: 100%;
     font-weight: bold;
     padding-block: 2rem;
@@ -152,7 +153,7 @@ button {
     transition: 300ms ease-in-out;
   }
   .navbar .navigation a:where(:hover, :focus) {
-    color: hsl(257deg, 27%, 26%);
+    color: hsl(257, 27%, 26%);
   }
   .hamburger-btn {
     display: none;
@@ -178,6 +179,17 @@ button {
     margin-block: 0.5rem 1.5rem;
   }
 }
+@media (width < 58.125rem) and (width > 48rem) {
+  .navbar {
+    gap: 1.5rem;
+  }
+  .navbar .navigation {
+    gap: 0.5rem;
+  }
+  .navbar .navigation__block {
+    gap: 1rem;
+  }
+}
 @media (width < 48rem) {
   .navbar {
     padding-block: 3rem 2rem;
@@ -188,10 +200,10 @@ button {
     top: 7.6875rem;
     left: 0;
     right: 0;
-    background: hsl(257deg, 27%, 26%);
+    background: hsl(257, 27%, 26%);
     padding: 3rem 2rem;
     border-radius: 0.75rem;
-    z-index: -10;
+    opacity: 0;
     visibility: hidden;
     transition: 1000ms ease-in-out;
   }
@@ -215,10 +227,12 @@ button {
   .navbar .navigation hr {
     margin-block: 2rem;
     border-top: 0;
-    border-color: hsl(0deg, 0%, 75%);
+    border-color: hsl(0, 0%, 75%);
     opacity: 0.25;
   }
   .navbar .navigation.visible {
+    z-index: 10;
+    opacity: 1;
     visibility: visible;
   }
   .hamburger-btn {
@@ -228,7 +242,7 @@ button {
     transition: 300ms ease-in-out;
   }
   .hamburger-btn:where(:hover, :focus-visible) {
-    color: hsl(255deg, 11%, 22%);
+    color: hsl(255, 11%, 22%);
   }
   .container.header {
     margin-right: 0;
@@ -244,6 +258,10 @@ button {
   .header__text {
     margin-bottom: 3rem;
     margin-left: -1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .header__text p {
     width: 90dvw;
@@ -269,7 +287,7 @@ button {
   visibility: hidden;
   position: absolute;
   font-size: 0.75rem;
-  color: hsl(0deg, 87%, 67%);
+  color: hsl(0, 87%, 67%);
 }
 .shortener:has(input:where(.invalid)) .shortener__information {
   z-index: 1;
@@ -313,6 +331,7 @@ button {
 }
 .shortened-links-wrapper__item .url-wrap {
   flex-grow: 1;
+  word-break: break-all;
 }
 @media (width >= 64rem) {
   .shortened-links-wrapper__item {
@@ -321,11 +340,18 @@ button {
     justify-content: space-between;
     align-items: center;
   }
+  .shortened-links-wrapper__item button {
+    width: 6.875rem;
+  }
   .shortened-links-wrapper__item .url-wrap {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+  }
+  .shortened-links-wrapper__item .url-wrap hr {
+    display: none;
   }
 }
 @media (width < 64rem) {
@@ -341,23 +367,25 @@ button {
     justify-content: flex-start;
     align-items: flex-start;
   }
+  .shortened-links-wrapper__item .url-wrap hr {
+    width: calc(100% + 2rem);
+    translate: -1rem;
+    border-top: 0;
+  }
 }
 .shortened-links-wrapper .url {
   font-weight: bold;
   word-wrap: break-word;
 }
 .shortened-links-wrapper .url--before {
-  color: hsl(260deg, 8%, 14%);
+  color: hsl(260, 8%, 14%);
 }
 .shortened-links-wrapper .url--after {
-  color: hsl(180deg, 66%, 49%);
+  color: hsl(180, 66%, 49%);
   text-align: end;
 }
 .shortened-links-wrapper:last-child {
   margin-bottom: 7.5rem;
-}
-.shortened-links-wrapper button {
-  width: 6.875rem;
 }
 
 @media (width >= 48rem) {
@@ -370,7 +398,7 @@ button {
     background: url("/app/assets/images/bg-shorten-desktop.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: hsl(257deg, 27%, 26%);
+    background-color: hsl(257, 27%, 26%);
     padding: 3rem;
   }
   .shortener__information {
@@ -383,7 +411,7 @@ button {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top right;
-    background-color: hsl(257deg, 27%, 26%);
+    background-color: hsl(257, 27%, 26%);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -403,7 +431,7 @@ main {
 }
 
 .main-bg {
-  background: hsl(230deg, 25%, 95%);
+  background: hsl(230, 25%, 95%);
   padding-bottom: 7.5rem;
 }
 
@@ -444,7 +472,7 @@ main {
     top: 35%;
     left: 0;
     right: 0;
-    background: hsl(180deg, 66%, 49%);
+    background: hsl(180, 66%, 49%);
   }
 }
 @media (width < 75rem) {
@@ -460,7 +488,7 @@ main {
     right: 50%;
     width: 0.625rem;
     height: 5rem;
-    background: hsl(180deg, 66%, 49%);
+    background: hsl(180, 66%, 49%);
     translate: 50% -100%;
   }
 }
@@ -484,7 +512,7 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
-    background-color: hsl(257deg, 27%, 26%);
+    background-color: hsl(257, 27%, 26%);
   }
 }
 @media (width < 48rem) {
@@ -492,7 +520,7 @@ main {
     background: url("/app/assets/images/bg-boost-mobile.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: hsl(257deg, 27%, 26%);
+    background-color: hsl(257, 27%, 26%);
   }
   .boost h2 {
     font-size: 1.75rem;
@@ -500,7 +528,7 @@ main {
 }
 
 footer {
-  background: hsl(255deg, 11%, 22%);
+  background: hsl(255, 11%, 22%);
 }
 
 .footer-wrapper {
@@ -520,7 +548,7 @@ footer {
   }
 }
 .footer-wrapper a {
-  color: hsl(0deg, 0%, 75%);
+  color: hsl(0, 0%, 75%);
   transition: 300ms ease-in-out;
 }
 .footer-wrapper a:where(:first-child), .footer-wrapper a:has(svg) {
@@ -529,10 +557,10 @@ footer {
   margin-bottom: 1rem;
 }
 .footer-wrapper a:where(:first-child):where(:hover, :focus), .footer-wrapper a:has(svg):where(:hover, :focus) {
-  color: hsl(180deg, 66%, 49%);
+  color: hsl(180, 66%, 49%);
 }
 .footer-wrapper a:where(:hover, :focus) {
-  color: hsl(180deg, 66%, 49%);
+  color: hsl(180, 66%, 49%);
 }
 
 .footer-navigation {
@@ -566,7 +594,7 @@ footer {
 }
 
 .btn {
-  background: hsl(180deg, 66%, 49%);
+  background: hsl(180, 66%, 49%);
   padding: 1em 2em;
   border-radius: 9999px;
   font-family: inherit;
@@ -586,10 +614,16 @@ footer {
   font-size: 1rem;
 }
 .btn--accent {
-  background: hsl(257deg, 27%, 26%);
+  background: hsl(257, 27%, 26%);
 }
 .btn:where(:hover, :focus-visible) {
   opacity: 0.5 !important;
+}
+@media (width < 58.125rem) and (width > 48rem) {
+  .btn--scalable {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+  }
 }
 
 input[type=url] {
@@ -598,21 +632,21 @@ input[type=url] {
   outline: none;
   border: none;
   border-radius: 0.5em;
-  color: hsl(260deg, 8%, 14%);
+  color: hsl(260, 8%, 14%);
   border: 0.1875rem solid transparent;
   transition: 300ms ease-in-out;
   font-size: inherit;
   font-family: inherit;
 }
 input[type=url].invalid {
-  border-color: hsl(0deg, 87%, 67%);
+  border-color: hsl(0, 87%, 67%);
 }
 input[type=url].invalid::-moz-placeholder {
-  color: hsl(0deg, 87%, 67%);
+  color: hsl(0, 87%, 67%);
   opacity: 0.5;
 }
 input[type=url].invalid::placeholder {
-  color: hsl(0deg, 87%, 67%);
+  color: hsl(0, 87%, 67%);
   opacity: 0.5;
 }
 
@@ -634,7 +668,7 @@ input[type=url].invalid::placeholder {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: hsl(257deg, 27%, 26%);
+  background: hsl(257, 27%, 26%);
   padding: 1.25rem;
   border-radius: 50%;
   translate: 0 -50%;

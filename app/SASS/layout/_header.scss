@@ -30,6 +30,7 @@
   .navbar {
     & .navigation {
       @include flex(row, space-between, center);
+      gap: 1rem;
       width: 100%;
       font-weight: bold;
       padding-block: 2rem;
@@ -79,6 +80,18 @@
   }
 }
 
+@media (width < func.rem(930)) and (width > func.rem(768)) {
+  .navbar {
+    gap: 1.5rem;
+    & .navigation {
+      gap: 0.5rem;
+      &__block {
+        gap: 1rem;
+      }
+    }
+  }
+}
+
 @media (width < func.rem(768)) {
   .navbar {
     padding-block: 3rem 2rem;
@@ -91,7 +104,7 @@
       background: c.$dark-violet;
       padding: 3rem 2rem;
       border-radius: 0.75rem;
-      z-index: -10;
+      opacity: 0;
       visibility: hidden;
       transition: 1000ms ease-in-out;
 
@@ -119,6 +132,8 @@
       }
 
       &.visible {
+        z-index: 10;
+        opacity: 1;
         visibility: visible;
       }
     }
@@ -146,6 +161,7 @@
     &__text {
       margin-bottom: 3rem;
       margin-left: -1rem;
+      @include flex(column, center, center);
       & p {
         width: 90dvw;
         margin-inline: auto;
