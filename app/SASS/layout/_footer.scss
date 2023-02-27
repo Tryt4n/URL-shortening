@@ -15,22 +15,30 @@ footer {
     gap: 5rem;
   }
 
-  & a {
-    color: c.$gray;
-    transition: v.$main-transition;
+  & .footer-navigation {
+    &__wrap,
+    &__logos {
+      & a {
+        color: c.$gray;
+        transition: v.$main-transition;
+        &:has(svg) {
+          color: white;
+        }
 
-    &:where(:first-child),
-    &:has(svg) {
-      color: white;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      &:where(:hover, :focus) {
-        color: c.$cyan;
+        &:where(:first-child) {
+          color: white;
+          font-weight: bold;
+        }
+
+        &:is(:hover, :focus) {
+          color: c.$cyan;
+        }
       }
     }
 
-    &:where(:hover, :focus) {
-      color: c.$cyan;
+    // Fallback
+    &__logos .logo-accent {
+      color: white;
     }
   }
 }

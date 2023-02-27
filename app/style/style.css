@@ -49,6 +49,7 @@ p {
 
 a {
   color: inherit;
+  -webkit-text-decoration: none;
   text-decoration: none;
   outline: none;
 }
@@ -79,24 +80,28 @@ button {
   cursor: pointer;
 }
 
-@media (width >= 48rem) {
+@media (min-width: 48rem) {
   .container {
     width: 80dvw;
-    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
-@media (width < 48rem) {
+@media (max-width: 47.999rem) {
   .container {
-    margin-inline: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 .visually-hidden {
   position: absolute !important;
-  clip: rect(1px 1px 1px 1px);
   padding: 0 !important;
   border: 0 !important;
   height: 1px !important;
   width: 1px !important;
+}
+.visually-hidden {
+  clip: rect(1px 1px 1px 1px);
   overflow: hidden;
 }
 
@@ -125,10 +130,11 @@ button {
   font-size: 3em;
 }
 .header__text p {
-  margin-block: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-@media (width >= 48rem) {
+@media (min-width: 48rem) {
   .navbar .navigation {
     display: flex;
     flex-direction: row;
@@ -137,7 +143,8 @@ button {
     gap: 1rem;
     width: 100%;
     font-weight: bold;
-    padding-block: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .navbar .navigation__block {
     display: flex;
@@ -176,10 +183,11 @@ button {
     font-size: 3em;
   }
   .header__text p {
-    margin-block: 0.5rem 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
   }
 }
-@media (width < 58.125rem) and (width > 48rem) {
+@media (max-width: 58.124rem) and (min-width: 48.001rem) {
   .navbar {
     gap: 1.5rem;
   }
@@ -190,9 +198,10 @@ button {
     gap: 1rem;
   }
 }
-@media (width < 48rem) {
+@media (max-width: 47.999rem) {
   .navbar {
-    padding-block: 3rem 2rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
     position: relative;
   }
   .navbar .navigation {
@@ -225,7 +234,8 @@ button {
     opacity: 1;
   }
   .navbar .navigation hr {
-    margin-block: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     border-top: 0;
     border-color: hsl(0, 0%, 75%);
     opacity: 0.25;
@@ -265,7 +275,8 @@ button {
   }
   .header__text p {
     width: 90dvw;
-    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 @keyframes navbarSlideDown {
@@ -333,7 +344,7 @@ button {
   flex-grow: 1;
   word-break: break-all;
 }
-@media (width >= 64rem) {
+@media (min-width: 64rem) {
   .shortened-links-wrapper__item {
     display: flex;
     flex-direction: row;
@@ -354,7 +365,7 @@ button {
     display: none;
   }
 }
-@media (width < 64rem) {
+@media (max-width: 63.999rem) {
   .shortened-links-wrapper__item {
     display: flex;
     flex-direction: column;
@@ -382,13 +393,13 @@ button {
 }
 .shortened-links-wrapper .url--after {
   color: hsl(180, 66%, 49%);
-  text-align: end;
+  text-align: right;
 }
 .shortened-links-wrapper:last-child {
   margin-bottom: 7.5rem;
 }
 
-@media (width >= 48rem) {
+@media (min-width: 48rem) {
   .shortener {
     display: flex;
     flex-direction: row;
@@ -405,7 +416,7 @@ button {
     translate: 0 3rem;
   }
 }
-@media (width < 48rem) {
+@media (max-width: 47.999rem) {
   .shortener {
     background: url("/app/assets/images/bg-shorten-mobile.svg");
     background-repeat: no-repeat;
@@ -440,7 +451,8 @@ main {
 }
 .statistics > :first-child {
   max-width: 500px;
-  margin-inline: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 5rem;
   text-align: center;
 }
@@ -451,7 +463,7 @@ main {
 .statistics__articles-wrapper {
   display: grid;
 }
-@media (width >= 75rem) {
+@media (min-width: 75rem) {
   .statistics__articles-wrapper {
     width: 100%;
     position: relative;
@@ -475,7 +487,7 @@ main {
     background: hsl(180, 66%, 49%);
   }
 }
-@media (width < 75rem) {
+@media (max-width: 74.999rem) {
   .statistics__articles-wrapper {
     grid-template-rows: repeat(3, 1fr);
     gap: 5rem;
@@ -495,7 +507,8 @@ main {
 
 .boost {
   text-align: center;
-  padding-block: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -506,7 +519,7 @@ main {
   margin-bottom: 1em;
   color: white;
 }
-@media (width >= 48rem) {
+@media (min-width: 48rem) {
   .boost {
     background: url("/app/assets/images/bg-boost-desktop.svg");
     background-repeat: no-repeat;
@@ -515,7 +528,7 @@ main {
     background-color: hsl(257, 27%, 26%);
   }
 }
-@media (width < 48rem) {
+@media (max-width: 47.999rem) {
   .boost {
     background: url("/app/assets/images/bg-boost-mobile.svg");
     background-repeat: no-repeat;
@@ -532,13 +545,14 @@ footer {
 }
 
 .footer-wrapper {
-  padding-block: 3rem 7.5rem;
+  padding-top: 3rem;
+  padding-bottom: 7.5rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
 }
-@media (width < 75rem) {
+@media (max-width: 74.999rem) {
   .footer-wrapper {
     display: flex;
     flex-direction: column;
@@ -558,11 +572,8 @@ footer {
   color: white;
   font-weight: bold;
 }
-.footer-wrapper .footer-navigation__wrap a:is(:hover, :focus), .footer-wrapper .footer-navigation__logos a:is(:hover, :focus) {
+.footer-wrapper .footer-navigation__wrap a:hover, .footer-wrapper .footer-navigation__wrap a:focus, .footer-wrapper .footer-navigation__logos a:hover, .footer-wrapper .footer-navigation__logos a:focus {
   color: hsl(180, 66%, 49%);
-}
-.footer-wrapper .footer-navigation__logos .logo-accent {
-  color: white;
 }
 
 .footer-navigation {
@@ -572,7 +583,7 @@ footer {
   align-items: stretch;
   gap: 5rem;
 }
-@media (width < 48rem) {
+@media (max-width: 47.999rem) {
   .footer-navigation {
     flex-direction: column;
     justify-content: flex-start;
@@ -621,7 +632,7 @@ footer {
 .btn:where(:hover, :focus-visible) {
   opacity: 0.5 !important;
 }
-@media (width < 58.125rem) and (width > 48rem) {
+@media (max-width: 58.124rem) and (min-width: 48.001rem) {
   .btn--scalable {
     padding: 0.5em 1em;
     font-size: 1rem;
@@ -676,10 +687,11 @@ input[type=url].invalid::placeholder {
   translate: 0 -50%;
 }
 .card h3 {
-  margin-block: 3rem 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
 }
-@media (width < 75rem) {
+@media (max-width: 74.999rem) {
   .card {
     display: flex;
     flex-direction: column;
@@ -687,4 +699,5 @@ input[type=url].invalid::placeholder {
     align-items: center;
     text-align: center;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+/*# sourceMappingURL=style.css.map */
